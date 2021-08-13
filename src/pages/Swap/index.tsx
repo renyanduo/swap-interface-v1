@@ -1,8 +1,9 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@paiswap/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState, useRef } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text, useModal, Link, Flex } from '@pancakeswap-libs/uikit'
+import { CardBody, ArrowDownIcon, Button, IconButton, Text, useModal, Flex } from '@pancakeswap-libs/uikit'
 import styled, { ThemeContext } from 'styled-components'
+import { Link } from 'react-router-dom'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -37,12 +38,13 @@ import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import V2ExchangeRedirectModal from 'components/V2ExchangeRedirectModal'
+import SettingsModal from 'components/PageHeader/SettingsModal'
 import AppBody from '../AppBody'
 
-const StyledLink = styled(Link)`
-  display: inline;
-  color: ${({ theme }) => theme.colors.failure};
-`
+// const StyledLink = styled(Link)`
+//   display: inline;
+//   color: ${({ theme }) => theme.colors.failure};
+// `
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -102,6 +104,7 @@ const Swap = () => {
   )
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   const trade = showWrap ? undefined : v2Trade
+  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
 
   // Manage disabled trading pairs that should redirect users to V2
   useEffect(() => {
@@ -363,6 +366,78 @@ const Swap = () => {
     [onCurrencySelection, checkForWarning]
   )
 
+  const MainWrapper = styled.div`
+    width: 720px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+
+    &>div {
+      max-width: none;
+    }
+
+    .page-header {
+      .tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 34px;
+        margin-top: 13px;
+        padding: 0 24px;
+
+        &-item {
+          width: 322px;
+          height: 62px;
+          background: #fefbf9;
+          box-shadow: 0px 3px 5px 0px rgba(221, 153, 81, 0.67);
+          border-radius: 14px;
+          color: #fa9124;
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: bold;
+          color: #fa9124;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:nth-child(1) {
+            margin-right: 19px;
+          }
+
+          &.active {
+            background: #fefbf9;
+            box-shadow: inset 0px 3px 7px 0px rgba(221, 153, 81, 0.66);
+          }
+        }
+
+        .settings {
+          margin-left: 18px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #swap-currency-input, #swap-currency-output {
+      & > div {
+        background: #F8F2F2;
+        color: #303030;
+      }
+    }
+
+    #swap-button {
+      height: 50px;
+      background: linear-gradient(180deg, #F9B06C 0%, #FA9124 100%);
+      box-shadow: 0px 2px 4px 0px rgba(187, 96, 1, 0.36);
+      border-radius: 26px;
+
+      &[disabled] {
+        background: #FEEAD4;
+        color: #C3AA90;
+      }
+    }
+  `
+
   return (
     <Container>
       <TokenWarningModal
@@ -376,7 +451,8 @@ const Swap = () => {
         onConfirm={handleConfirmWarning}
       />
       <SafeMoonWarningModal isOpen={transactionWarning.selectedToken === 'SAFEMOON'} onConfirm={handleConfirmWarning} />
-      <CardNav />
+      {/* <CardNav /> */}
+      <MainWrapper>
       <AppBody>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
@@ -392,12 +468,26 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader
-            title={TranslateString(8, 'Exchange')}
-            description={TranslateString(1192, 'Trade tokens in an instant')}
-          />
+          <div className="page-header">
+            {/* <PageHeader
+              title={TranslateString(8, 'Exchange')}
+              description={TranslateString(1192, 'Trade tokens in an instant')}
+            /> */}
+            <div className="tab">
+              <Link to="/swap" className="tab-item active">
+                Swap
+              </Link>
+              <Link to="/pool" className="tab-item">
+                Liquidity
+              </Link>
+              <div className="settings" onClick={onPresentSettings} aria-hidden="true">
+                <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf04ec6ad4674a213f4e083ab0501e6bb274beaf7a8c19ecd7edf06b874e05a1a" alt="" />
+              </div>
+            </div>
+          </div>
           <CardBody>
             <AutoColumn gap="md">
+              <div className="input-wrap">
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -413,6 +503,7 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
+              </div>
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
@@ -422,10 +513,11 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
+                      style={{ borderRadius: '50%', background: 'transparent' }}
                       scale="sm"
                     >
-                      <ArrowDownIcon color="primary" width="24px" />
+                      {/* <ArrowDownIcon color="primary" width="24px" /> */}
+                      <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf5c2c440d93fb9abf6a5c7413c2207262023660a5578b5764604bd4242e33a22" alt="" />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -435,6 +527,7 @@ const Swap = () => {
                   ) : null}
                 </AutoRow>
               </AutoColumn>
+              <div className="input-wrap">
               <CurrencyInputPanel
                 value={formattedAmounts[Field.OUTPUT]}
                 onUserInput={handleTypeOutput}
@@ -449,6 +542,7 @@ const Swap = () => {
                 otherCurrency={currencies[Field.INPUT]}
                 id="swap-currency-output"
               />
+              </div>
 
               {recipient !== null && !showWrap ? (
                 <>
@@ -467,7 +561,7 @@ const Swap = () => {
               {showWrap ? null : (
                 <Card padding=".25rem .75rem 0 .75rem" borderRadius="20px">
                   <AutoColumn gap="4px">
-                    {Boolean(trade) && (
+                    {/* {Boolean(trade) && (
                       <RowBetween align="center">
                         <Text fontSize="14px">{TranslateString(1182, 'Price')}</Text>
                         <TradePrice
@@ -476,13 +570,13 @@ const Swap = () => {
                           setShowInverted={setShowInverted}
                         />
                       </RowBetween>
-                    )}
-                    {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
+                    )} */}
+                    {/* {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                       <RowBetween align="center">
                         <Text fontSize="14px">{TranslateString(88, 'Slippage Tolerance')}</Text>
                         <Text fontSize="14px">{allowedSlippage / 100}%</Text>
                       </RowBetween>
-                    )}
+                    )} */}
                   </AutoColumn>
                 </Card>
               )}
@@ -492,9 +586,9 @@ const Swap = () => {
                 <Flex alignItems="center" justifyContent="center" mb="1rem">
                   <Text color="failure">
                     Please use{' '}
-                    <StyledLink external href="https://exchange.pancakeswap.finance">
+                    {/* <StyledLink external href="https://exchange.pancakeswap.finance">
                       PancakeSwap V2
-                    </StyledLink>{' '}
+                    </StyledLink>{' '} */}
                     to make this trade
                   </Text>
                 </Flex>
@@ -591,6 +685,7 @@ const Swap = () => {
           </CardBody>
         </Wrapper>
       </AppBody>
+          </MainWrapper>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </Container>
   )

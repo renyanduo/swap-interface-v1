@@ -19,6 +19,7 @@ import { AddRemoveTabs } from '../../components/NavigationTabs'
 import { MinimalPositionCard } from '../../components/PositionCard'
 import { RowBetween, RowFixed } from '../../components/Row'
 import Container from '../../components/Container'
+import NewButton from '../../components/NewButton'
 
 import Slider from '../../components/Slider'
 import CurrencyLogo from '../../components/CurrencyLogo'
@@ -389,9 +390,11 @@ export default function RemoveLiquidity({
             </RowBetween>
           </>
         )}
+        <NewButton>
         <Button disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove}>
           {TranslateString(1136, 'Confirm')}
         </Button>
+        </NewButton>
       </>
     )
   }
@@ -450,8 +453,20 @@ export default function RemoveLiquidity({
     liquidityPercentChangeCallback
   )
 
+  const MainWrapper = styled.div`
+    width: 720px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    
+    &>div {
+      max-width: none;
+    }
+  `
+
   return (
     <Container>
+      <MainWrapper>
       <AppBody>
         <AddRemoveTabs adding={false} />
         <Wrapper>
@@ -493,6 +508,7 @@ export default function RemoveLiquidity({
                         <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
                       </Flex>
                       <Flex justifyContent="space-around">
+                        <NewButton>
                         <Button
                           variant="tertiary"
                           scale="sm"
@@ -500,6 +516,8 @@ export default function RemoveLiquidity({
                         >
                           25%
                         </Button>
+                        </NewButton>
+                        <NewButton>
                         <Button
                           variant="tertiary"
                           scale="sm"
@@ -507,6 +525,8 @@ export default function RemoveLiquidity({
                         >
                           50%
                         </Button>
+                        </NewButton>
+                        <NewButton>
                         <Button
                           variant="tertiary"
                           scale="sm"
@@ -514,6 +534,8 @@ export default function RemoveLiquidity({
                         >
                           75%
                         </Button>
+                        </NewButton>
+                        <NewButton>
                         <Button
                           variant="tertiary"
                           scale="sm"
@@ -521,6 +543,7 @@ export default function RemoveLiquidity({
                         >
                           {TranslateString(166, 'Max')}
                         </Button>
+                        </NewButton>
                       </Flex>
                     </>
                   )}
@@ -645,6 +668,7 @@ export default function RemoveLiquidity({
                   <ConnectWalletButton width="100%" />
                 ) : (
                   <RowBetween>
+                    <NewButton>
                     <Button
                       onClick={approveCallback}
                       variant={approval === ApprovalState.APPROVED || signatureData !== null ? 'success' : 'primary'}
@@ -659,6 +683,8 @@ export default function RemoveLiquidity({
                         'Approve'
                       )}
                     </Button>
+                    </NewButton>
+                    <NewButton>
                     <Button
                       onClick={() => {
                         setShowConfirm(true)
@@ -672,6 +698,7 @@ export default function RemoveLiquidity({
                     >
                       {error || 'Remove'}
                     </Button>
+                    </NewButton>
                   </RowBetween>
                 )}
               </div>
@@ -679,6 +706,7 @@ export default function RemoveLiquidity({
           </AutoColumn>
         </Wrapper>
       </AppBody>
+      </MainWrapper>
 
       {pair ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>

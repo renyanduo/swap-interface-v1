@@ -17,6 +17,7 @@ import CurrencyLogo from '../CurrencyLogo'
 import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween, RowFixed } from '../Row'
 import { Dots } from '../swap/styleds'
+import NewButton from '../NewButton'
 
 export const FixedHeightRow = styled(RowBetween)`
   height: 24px;
@@ -202,6 +203,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
             <RowBetween marginTop="10px">
               {/* {removeOnly && ( */}
+                <NewButton>
                 <Button
                   as={Link}
                   to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
@@ -209,7 +211,9 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
                 >
                   Add
                 </Button>
+                </NewButton>
               {/* )} */}
+              <NewButton>
               <Button
                 as={Link}
                 style={{ width: '48%' }}
@@ -217,6 +221,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               >
                 Remove
               </Button>
+              </NewButton>
             </RowBetween>
           </AutoColumn>
         )}

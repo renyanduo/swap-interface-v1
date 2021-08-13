@@ -3,6 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@paiswap/sdk'
 import { Button, CardBody, AddIcon, Text as UIKitText } from '@pancakeswap-libs/uikit'
+import styled from 'styled-components'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -13,6 +14,7 @@ import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { AddRemoveTabs } from 'components/NavigationTabs'
 import { MinimalPositionCard } from 'components/PositionCard'
 import Row, { RowBetween, RowFlat } from 'components/Row'
+import NewButton from 'components/NewButton'
 
 import { PairState } from 'data/Reserves'
 import { useActiveWeb3React } from 'hooks'
@@ -288,9 +290,21 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
+  const MainWrapper = styled.div`
+    width: 720px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    
+    &>div {
+      max-width: none;
+    }
+  `
+
   return (
     <Container>
-      <CardNav activeIndex={1} />
+      {/* <CardNav activeIndex={1} /> */}
+      <MainWrapper>
       <AppBody>
         <AddRemoveTabs adding />
         <Wrapper>
@@ -391,6 +405,7 @@ export default function AddLiquidity({
                     isValid && (
                       <RowBetween>
                         {approvalA !== ApprovalState.APPROVED && (
+                          <NewButton>
                           <Button
                             onClick={approveACallback}
                             disabled={approvalA === ApprovalState.PENDING}
@@ -402,8 +417,10 @@ export default function AddLiquidity({
                               `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
                             )}
                           </Button>
+                          </NewButton>
                         )}
                         {approvalB !== ApprovalState.APPROVED && (
+                          <NewButton>
                           <Button
                             onClick={approveBCallback}
                             disabled={approvalB === ApprovalState.PENDING}
@@ -415,9 +432,11 @@ export default function AddLiquidity({
                               `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
                             )}
                           </Button>
+                          </NewButton>
                         )}
                       </RowBetween>
                     )}
+                  <NewButton>
                   <Button
                     onClick={() => {
                       if (expertMode) {
@@ -437,12 +456,14 @@ export default function AddLiquidity({
                   >
                     {error ?? "Supply"}
                   </Button>
+                  </NewButton>
                 </AutoColumn>
               )}
             </AutoColumn>
           </CardBody>
         </Wrapper>
       </AppBody>
+      </MainWrapper>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
           <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />

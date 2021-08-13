@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { Pair } from '@paiswap/sdk'
-import { Button, CardBody, Text } from '@pancakeswap-libs/uikit'
+import { Button, CardBody, Text, useModal } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'
 import Question from 'components/QuestionHelper'
@@ -19,6 +19,7 @@ import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
 import { Dots } from 'components/swap/styleds'
 import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
+import SettingsModal from 'components/PageHeader/SettingsModal'
 import AppBody from '../AppBody'
 
 export default function Pool() {
@@ -39,6 +40,7 @@ export default function Pool() {
     account ?? undefined,
     liquidityTokens
   )
+  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
 
   // fetch the reserves for all V2 pools in which the user has a balance
   const liquidityTokensWithBalances = useMemo(
@@ -55,18 +57,95 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
+  const MainWrapper = styled.div`
+    width: 720px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    
+    &>div {
+      max-width: none;
+    }
+
+    .page-header {
+      .tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 34px;
+        margin-top: 13px;
+        padding: 0 24px;
+
+        &-item {
+          width: 322px;
+          height: 62px;
+          background: #fefbf9;
+          box-shadow: 0px 3px 5px 0px rgba(221, 153, 81, 0.67);
+          border-radius: 14px;
+          color: #fa9124;
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: bold;
+          color: #fa9124;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:nth-child(1) {
+            margin-right: 19px;
+          }
+
+          &.active {
+            background: #fefbf9;
+            box-shadow: inset 0px 3px 7px 0px rgba(221, 153, 81, 0.66);
+          }
+        }
+
+        .settings {
+          margin-left: 18px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #join-pool-button {
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(180deg, #F9B06C 0%, #FA9124 100%);
+      box-shadow: 0px 2px 4px 0px rgba(187, 96, 1, 0.36);
+      border-radius: 26px;
+    }
+
+
+  `
+
   return (
     <Container>
-      <CardNav activeIndex={1} />
+      {/* <CardNav activeIndex={1} /> */}
+      <MainWrapper>
       <AppBody>
-        <PageHeader
+        {/* <PageHeader
           title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
         >
           <Button id="join-pool-button" as={Link} to="/add/PI" mb="16px">
             {TranslateString(168, 'Add Liquidity')}
           </Button>
-        </PageHeader>
+        </PageHeader> */}
+        <div className="page-header">
+          <div className="tab">
+            <Link to="/swap" className="tab-item">
+                Swap
+            </Link>
+            <Link to="/pool" className="tab-item active">
+                Liquidity
+            </Link>
+            <div className="settings" onClick={onPresentSettings} aria-hidden="true">
+              <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf04ec6ad4674a213f4e083ab0501e6bb274beaf7a8c19ecd7edf06b874e05a1a" alt="" />
+            </div>
+          </div>
+        </div>
         <AutoColumn gap="lg" justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
@@ -106,7 +185,11 @@ export default function Pool() {
                 </LightCard>
               )}
 
-              <div>
+            <Button id="join-pool-button" as={Link} to="/add/PI" mb="16px">
+              {TranslateString(168, 'Add Liquidity')}
+            </Button>
+
+              {/* <div>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}{' '}
                   <StyledInternalLink id="import-pool-link" to="/find">
@@ -116,11 +199,12 @@ export default function Pool() {
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {TranslateString(1172, 'Or, if you staked your LP tokens in a farm, unstake them to see them here.')}
                 </Text>
-              </div>
+              </div> */}
             </AutoColumn>
           </CardBody>
         </AutoColumn>
       </AppBody>
+      </MainWrapper>
     </Container>
   )
 }
