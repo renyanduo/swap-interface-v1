@@ -207,7 +207,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
                 <Button
                   as={Link}
                   to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
-                  style={{ width: '48%' }}
+                  // style={{ width: '48%' }}
                 >
                   Add
                 </Button>
@@ -216,7 +216,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               <NewButton>
               <Button
                 as={Link}
-                style={{ width: '48%' }}
+                style={{ marginLeft: '10px' }}
                 to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
               >
                 Remove
