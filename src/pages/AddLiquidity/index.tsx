@@ -299,6 +299,13 @@ export default function AddLiquidity({
     &>div {
       max-width: none;
     }
+
+    #add-liquidity-input-tokena, #add-liquidity-input-tokenb {
+      & > div {
+        background: #F8F2F2;
+        color: #303030;
+      }
+    }
   `
 
   return (

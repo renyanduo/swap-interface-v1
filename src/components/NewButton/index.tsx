@@ -11,6 +11,7 @@ const Button = (props) => {
       background: linear-gradient(180deg, #F9B06C 0%, #FA9124 100%);
       box-shadow: 0px 2px 4px 0px rgba(187, 96, 1, 0.36);
       border-radius: 26px;
+      color: #FFF;
     }
   `
 
