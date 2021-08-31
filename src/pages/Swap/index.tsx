@@ -481,7 +481,7 @@ const Swap = () => {
                 Liquidity
               </Link>
               <div className="settings" onClick={onPresentSettings} aria-hidden="true">
-                <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf04ec6ad4674a213f4e083ab0501e6bb274beaf7a8c19ecd7edf06b874e05a1a" alt="" />
+                <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf04ec6ad4674a213f4e083ab0501e6bb274beaf7a8c19ecd7edf06b874e05a1a" referrerPolicy="no-referrer" alt="" />
               </div>
             </div>
           </div>
@@ -517,7 +517,7 @@ const Swap = () => {
                       scale="sm"
                     >
                       {/* <ArrowDownIcon color="primary" width="24px" /> */}
-                      <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf5c2c440d93fb9abf6a5c7413c2207262023660a5578b5764604bd4242e33a22" alt="" />
+                      <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf5c2c440d93fb9abf6a5c7413c2207262023660a5578b5764604bd4242e33a22" referrerPolicy="no-referrer" alt="" />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (

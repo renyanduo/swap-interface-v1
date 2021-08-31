@@ -24,10 +24,10 @@ export const FixedHeightRow = styled(RowBetween)`
 `
 
 export const HoverCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
-  :hover {
+  /* border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
+  :hover { */
     border: 1px solid ${({ theme }) => darken(0.06, theme.colors.invertedContrast)};
-  }
+  /* } */
 `
 
 interface PositionCardProps {
@@ -61,9 +61,17 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
         ]
       : [undefined, undefined]
 
+  const MainWrapper = styled.div`
+    width: 720px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+  `
+
   return (
     <>
       {userPoolBalance && (
+        <MainWrapper>
         <UIKitCard>
           <CardBody>
             <AutoColumn gap="12px">
@@ -114,6 +122,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
             </AutoColumn>
           </CardBody>
         </UIKitCard>
+        </MainWrapper>
       )}
     </>
   )
