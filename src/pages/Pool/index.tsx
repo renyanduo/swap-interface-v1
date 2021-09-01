@@ -16,11 +16,13 @@ import Container from 'components/Container'
 import { useActiveWeb3React } from 'hooks'
 import { usePairs } from 'data/Reserves'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
-import { Dots } from 'components/swap/styleds'
+import { Dots, Wrapper } from 'components/swap/styleds'
 import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import SettingsModal from 'components/PageHeader/SettingsModal'
+import NewButton from 'components/NewButton'
 import AppBody from '../AppBody'
+import './index.scss'
 
 export default function Pool() {
   const theme = useContext(ThemeContext)
@@ -57,74 +59,11 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
-  const MainWrapper = styled.div`
-    width: 720px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-    
-    &>div {
-      max-width: none;
-    }
-
-    .page-header {
-      .tab {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 34px;
-        margin-top: 13px;
-        padding: 0 24px;
-
-        &-item {
-          width: 322px;
-          height: 62px;
-          background: #fefbf9;
-          box-shadow: 0px 3px 5px 0px rgba(221, 153, 81, 0.67);
-          border-radius: 14px;
-          color: #fa9124;
-          font-size: 16px;
-          font-family: Microsoft YaHei;
-          font-weight: bold;
-          color: #fa9124;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &:nth-child(1) {
-            margin-right: 19px;
-          }
-
-          &.active {
-            background: #fefbf9;
-            box-shadow: inset 0px 3px 7px 0px rgba(221, 153, 81, 0.66);
-          }
-        }
-
-        .settings {
-          margin-left: 18px;
-          cursor: pointer;
-        }
-      }
-    }
-
-    #join-pool-button {
-      width: 100%;
-      height: 50px;
-      background: linear-gradient(180deg, #F9B06C 0%, #FA9124 100%);
-      box-shadow: 0px 2px 4px 0px rgba(187, 96, 1, 0.36);
-      border-radius: 26px;
-    }
-
-
-  `
-
   return (
     <Container>
       {/* <CardNav activeIndex={1} /> */}
-      <MainWrapper>
       <AppBody>
+        <Wrapper id="pool-page">
         {/* <PageHeader
           title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
@@ -185,9 +124,11 @@ export default function Pool() {
                 </LightCard>
               )}
 
+            <NewButton>
             <Button id="join-pool-button" as={Link} to="/add/PI" mb="16px">
               {TranslateString(168, 'Add Liquidity')}
             </Button>
+            </NewButton>
 
               {/* <div>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
@@ -203,8 +144,8 @@ export default function Pool() {
             </AutoColumn>
           </CardBody>
         </AutoColumn>
+        </Wrapper>
       </AppBody>
-      </MainWrapper>
     </Container>
   )
 }

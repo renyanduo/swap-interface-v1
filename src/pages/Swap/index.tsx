@@ -40,6 +40,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import V2ExchangeRedirectModal from 'components/V2ExchangeRedirectModal'
 import SettingsModal from 'components/PageHeader/SettingsModal'
 import AppBody from '../AppBody'
+import './index.scss'
 
 // const StyledLink = styled(Link)`
 //   display: inline;
@@ -366,78 +367,6 @@ const Swap = () => {
     [onCurrencySelection, checkForWarning]
   )
 
-  const MainWrapper = styled.div`
-    width: 720px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-
-    &>div {
-      max-width: none;
-    }
-
-    .page-header {
-      .tab {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 34px;
-        margin-top: 13px;
-        padding: 0 24px;
-
-        &-item {
-          width: 322px;
-          height: 62px;
-          background: #fefbf9;
-          box-shadow: 0px 3px 5px 0px rgba(221, 153, 81, 0.67);
-          border-radius: 14px;
-          color: #fa9124;
-          font-size: 16px;
-          font-family: Microsoft YaHei;
-          font-weight: bold;
-          color: #fa9124;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &:nth-child(1) {
-            margin-right: 19px;
-          }
-
-          &.active {
-            background: #fefbf9;
-            box-shadow: inset 0px 3px 7px 0px rgba(221, 153, 81, 0.66);
-          }
-        }
-
-        .settings {
-          margin-left: 18px;
-          cursor: pointer;
-        }
-      }
-    }
-
-    #swap-currency-input, #swap-currency-output {
-      & > div {
-        background: #F8F2F2;
-        color: #303030;
-      }
-    }
-
-    #swap-button {
-      height: 50px;
-      background: linear-gradient(180deg, #F9B06C 0%, #FA9124 100%);
-      box-shadow: 0px 2px 4px 0px rgba(187, 96, 1, 0.36);
-      border-radius: 26px;
-
-      &[disabled] {
-        background: #FEEAD4;
-        color: #C3AA90;
-      }
-    }
-  `
-
   return (
     <Container>
       <TokenWarningModal
@@ -452,7 +381,6 @@ const Swap = () => {
       />
       <SafeMoonWarningModal isOpen={transactionWarning.selectedToken === 'SAFEMOON'} onConfirm={handleConfirmWarning} />
       {/* <CardNav /> */}
-      <MainWrapper>
       <AppBody>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
@@ -685,7 +613,6 @@ const Swap = () => {
           </CardBody>
         </Wrapper>
       </AppBody>
-          </MainWrapper>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </Container>
   )

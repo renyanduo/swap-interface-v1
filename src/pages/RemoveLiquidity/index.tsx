@@ -453,23 +453,11 @@ export default function RemoveLiquidity({
     liquidityPercentChangeCallback
   )
 
-  const MainWrapper = styled.div`
-    width: 720px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-    
-    &>div {
-      max-width: none;
-    }
-  `
-
   return (
     <Container>
-      <MainWrapper>
       <AppBody>
         <AddRemoveTabs adding={false} />
-        <Wrapper>
+        <Wrapper id="remove-page">
           <TransactionConfirmationModal
             isOpen={showConfirm}
             onDismiss={handleDismissConfirmation}
@@ -706,7 +694,6 @@ export default function RemoveLiquidity({
           </AutoColumn>
         </Wrapper>
       </AppBody>
-      </MainWrapper>
 
       {pair ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>

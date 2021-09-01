@@ -39,7 +39,8 @@ const store = configureStore({
     lists,
     toasts
   },
-  // middleware: [...getDefaultMiddleware({ thunk: false }), save({ states: PERSISTED_KEYS })],
+  // @ts-ignore 
+  middleware: [...getDefaultMiddleware({ thunk: false }), save({ states: PERSISTED_KEYS })],
   preloadedState: loadedState,
 })
 

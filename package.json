@@ -48,6 +48,7 @@
     "lodash.flatmap": "^4.5.0",
     "multicodec": "^2.0.0",
     "multihashes": "^3.0.1",
+    "node-sass": "^4.14.1",
     "polished": "^3.3.2",
     "react": "^17.0.1",
     "react-device-detect": "^1.6.2",

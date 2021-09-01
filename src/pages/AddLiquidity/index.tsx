@@ -38,6 +38,7 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
+import './index.scss'
 
 export default function AddLiquidity({
   match: {
@@ -290,31 +291,12 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
-  const MainWrapper = styled.div`
-    width: 720px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-    
-    &>div {
-      max-width: none;
-    }
-
-    #add-liquidity-input-tokena, #add-liquidity-input-tokenb {
-      & > div {
-        background: #F8F2F2;
-        color: #303030;
-      }
-    }
-  `
-
   return (
     <Container>
       {/* <CardNav activeIndex={1} /> */}
-      <MainWrapper>
       <AppBody>
         <AddRemoveTabs adding />
-        <Wrapper>
+        <Wrapper id="add-page">
           <TransactionConfirmationModal
             isOpen={showConfirm}
             onDismiss={handleDismissConfirmation}
@@ -470,7 +452,6 @@ export default function AddLiquidity({
           </CardBody>
         </Wrapper>
       </AppBody>
-      </MainWrapper>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
           <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />
