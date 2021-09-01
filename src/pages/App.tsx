@@ -34,10 +34,7 @@ const BodyWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
-  margin-bottom: 64px;
-  ${({ theme }) => theme.mediaQueries.lg} {
-    margin-bottom: 0;
-  }
+  margin: 0 auto;
 `
 
 const CACHE_KEY = 'pancakeSwapLanguage'
@@ -128,7 +125,7 @@ export default function App() {
             }}
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
-              <Menu>
+              {/* <Menu> */}
                 <BodyWrapper>
                   <Popups />
                   <Web3ReactManager>
@@ -149,7 +146,7 @@ export default function App() {
                     </Switch>
                   </Web3ReactManager>
                 </BodyWrapper>
-              </Menu>
+              {/* </Menu> */}
               <VersionBar />
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
