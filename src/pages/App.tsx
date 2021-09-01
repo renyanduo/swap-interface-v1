@@ -28,6 +28,7 @@ const AppWrapper = styled.div`
   flex-flow: column;
   align-items: flex-start;
   overflow-x: hidden;
+  background: #FEFAFC;
 `
 
 const BodyWrapper = styled.div`
@@ -147,7 +148,7 @@ export default function App() {
                   </Web3ReactManager>
                 </BodyWrapper>
               {/* </Menu> */}
-              <VersionBar />
+              {/* <VersionBar /> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
