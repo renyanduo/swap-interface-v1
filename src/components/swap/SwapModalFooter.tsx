@@ -16,6 +16,7 @@ import QuestionHelper from '../QuestionHelper'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import { StyledBalanceMaxMini, SwapCallbackError } from './styleds'
+import NewButton from '../NewButton'
 
 export default function SwapModalFooter({
   trade,
@@ -114,7 +115,8 @@ export default function SwapModalFooter({
         </RowBetween>
       </AutoColumn>
 
-      <AutoRow>
+      {/* <AutoRow> */}
+        <NewButton>
         <Button
           onClick={onConfirm}
           disabled={disabledConfirm}
@@ -125,9 +127,10 @@ export default function SwapModalFooter({
         >
           {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
         </Button>
+        </NewButton>
 
         {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
-      </AutoRow>
+      {/* </AutoRow> */}
     </>
   )
 }
