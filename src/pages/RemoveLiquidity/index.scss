@@ -1,0 +1,16 @@
+#remove-page {
+  input[type='range'] {
+    &::-webkit-slider-runnable-track {
+      background: #FA9124;
+    }
+  }
+
+  #liquidity-amount,
+  #remove-liquidity-tokena,
+  #remove-liquidity-tokenb {
+    & > div {
+      background: #f8f2f2;
+      color: #303030;
+    }
+  }
+}

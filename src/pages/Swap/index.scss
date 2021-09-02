@@ -63,4 +63,8 @@
 
 body {
   background: #FEFAFC !important;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
