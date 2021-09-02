@@ -16,6 +16,11 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
 
   transform: ${({ show }) => (show ? 'translateY(0%)' : 'translateY(-100%)')};
   transition: transform 300ms ease-in-out;
+
+  & > div > div {
+    box-shadow: 0px 3px 18px 3px rgb(0 0 0 / 19%);
+    border-radius: 8px;
+  }
 `
 
 export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: AdvancedSwapDetailsProps) {
