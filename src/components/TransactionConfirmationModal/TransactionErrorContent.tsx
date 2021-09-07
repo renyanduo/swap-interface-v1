@@ -4,6 +4,7 @@ import { Button, Text } from '@pancakeswap-libs/uikit'
 import { AlertTriangle } from 'react-feather'
 import { AutoColumn } from '../Column'
 import { Wrapper, Section, BottomSection, ContentHeader } from './helpers'
+import NewButton from '../NewButton'
 
 type TransactionErrorContentProps = { message: string; onDismiss: () => void }
 
@@ -21,7 +22,9 @@ const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContent
         </AutoColumn>
       </Section>
       <BottomSection gap="12px">
+        <NewButton>
         <Button onClick={onDismiss}>Dismiss</Button>
+        </NewButton>
       </BottomSection>
     </Wrapper>
   )

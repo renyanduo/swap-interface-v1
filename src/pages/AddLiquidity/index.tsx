@@ -392,9 +392,9 @@ export default function AddLiquidity({
                     approvalB === ApprovalState.NOT_APPROVED ||
                     approvalB === ApprovalState.PENDING) &&
                     isValid && (
+                      <NewButton>
                       <RowBetween>
                         {approvalA !== ApprovalState.APPROVED && (
-                          <NewButton>
                           <Button
                             onClick={approveACallback}
                             disabled={approvalA === ApprovalState.PENDING}
@@ -406,10 +406,8 @@ export default function AddLiquidity({
                               `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
                             )}
                           </Button>
-                          </NewButton>
                         )}
                         {approvalB !== ApprovalState.APPROVED && (
-                          <NewButton>
                           <Button
                             onClick={approveBCallback}
                             disabled={approvalB === ApprovalState.PENDING}
@@ -421,9 +419,9 @@ export default function AddLiquidity({
                               `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
                             )}
                           </Button>
-                          </NewButton>
                         )}
                       </RowBetween>
+                      </NewButton>
                     )}
                   <NewButton>
                   <Button

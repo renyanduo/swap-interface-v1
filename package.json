@@ -7,9 +7,9 @@
     "@binance-chain/bsc-connector": "^1.0.0",
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
-    "@pancakeswap-libs/sdk": "1.0.1",
-    "@pancakeswap-libs/pancake-swap-core": "^0.1.0",
     "@paiswap/sdk": "1.0.2",
+    "@pancakeswap-libs/pancake-swap-core": "^0.1.0",
+    "@pancakeswap-libs/sdk": "1.0.1",
     "@pancakeswap-libs/uikit": "^0.27.1",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
@@ -49,6 +49,7 @@
     "multicodec": "^2.0.0",
     "multihashes": "^3.0.1",
     "node-sass": "^4.14.1",
+    "patch-package": "^6.4.7",
     "polished": "^3.3.2",
     "react": "^17.0.1",
     "react-device-detect": "^1.6.2",
@@ -92,7 +93,8 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
-    "deploy:test": "aws s3 sync build s3://piswap-test/liquidity --delete"
+    "deploy:test": "aws s3 sync build s3://piswap-test/liquidity --delete",
+    "postinstall": "patch-package"
   },
   "husky": {
     "hooks": {
