@@ -18,23 +18,23 @@ export function isAddress(value: any): string | false {
 }
 
 const BSCSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  2099156: '',
+  2099156: 'piscan.',
   10067275: 'testnet.'
 }
 
 export function getBscScanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
-  const prefix = `https://${BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET_CHILD_0]}bscscan.com`
+  const prefix = `https://${BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET_CHILD_0]}plian.org`
 
   switch (type) {
     case 'transaction': {
-      return `${prefix}/tx/${data}`
+      return `${prefix}/child_test/tx/${data}`
     }
     case 'token': {
-      return `${prefix}/token/${data}`
+      return `${prefix}/child_test/token/${data}`
     }
     case 'address':
     default: {
-      return `${prefix}/address/${data}`
+      return `${prefix}/child_test/address/${data}`
     }
   }
 }

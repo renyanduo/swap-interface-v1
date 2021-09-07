@@ -26,7 +26,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
         </ConfirmedIcon>
         <AutoColumn gap="8px" justify="center">
           {chainId && hash && (
-            <LinkExternal color="#FA9124" href={getBscScanLink(chainId, hash, 'transaction')}>View on BscScan</LinkExternal>
+            <LinkExternal color="#FA9124" href={getBscScanLink(chainId, hash, 'transaction')}>View on PiScan</LinkExternal>
           )}
           <NewButton>
           <Button onClick={onDismiss} mt="20px">
