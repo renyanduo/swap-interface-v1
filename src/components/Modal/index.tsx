@@ -93,7 +93,7 @@ export default function Modal({
       {fadeTransition.map(
         ({ item, key, props }) =>
           item && (
-            <StyledDialogOverlay key={key} style={props} onDismiss={onDismiss} initialFocusRef={initialFocusRef}>
+            <StyledDialogOverlay key={key} style={props} onDismiss={onDismiss} initialFocusRef={initialFocusRef} dangerouslyBypassScrollLock>
               <StyledDialogContent
                 aria-label="dialog content"
                 minHeight={minHeight}
