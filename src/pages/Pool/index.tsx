@@ -86,7 +86,7 @@ export default function Pool() {
           </div>
         </div>
         <AutoColumn gap="lg" justify="center">
-          <CardBody>
+          <CardBody style={{ width: '100%' }}>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
                 <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
