@@ -8,7 +8,7 @@ const Container = styled.div`
   flex: 1;
 
   width: 100%;
-  padding: 32px 16px;
+  padding: 32px 0;
 
   // background-image: url('/images/group-pancake.svg');
   background-repeat: no-repeat;

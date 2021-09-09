@@ -36,6 +36,7 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   margin: 0 auto;
+  width: 100%;
 `
 
 const CACHE_KEY = 'pancakeSwapLanguage'
