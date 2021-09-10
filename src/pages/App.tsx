@@ -102,7 +102,7 @@ export default function App() {
 
   useEffect(() => {
     if (selectedLanguage) {
-      // fetchTranslationsForSelectedLanguage()
+      fetchTranslationsForSelectedLanguage()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLanguage])
