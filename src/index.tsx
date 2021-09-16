@@ -9,6 +9,7 @@ import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import ToastListener from './components/ToastListener'
 import Providers from './Providers'
+import './style/tailwind.css'
 import 'inter-ui'
 import './i18n'
 

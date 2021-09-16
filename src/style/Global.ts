@@ -18,12 +18,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
   }
-
-  li::before {
-    content: "•";
-    color: ${({ theme }) => theme.colors.primary};
-    margin-right: 8px;
-  }
 `
 
 export default GlobalStyle

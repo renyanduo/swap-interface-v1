@@ -19,6 +19,8 @@ import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import UseV2ExchangeModal from '../components/UseV2ExchangeModal'
+import AppHeader from '../components/AppHeader'
+import AppFooter from '../components/AppFooter'
 
 import Menu from '../components/Menu'
 import useGetDocumentTitlePrice from '../hooks/useGetDocumentTitlePrice'
@@ -130,6 +132,7 @@ export default function App() {
               {/* <Menu> */}
                 <BodyWrapper>
                   <Popups />
+                  <AppHeader />
                   <Web3ReactManager>
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />
@@ -147,6 +150,7 @@ export default function App() {
                       <Route component={RedirectPathToSwapOnly} />
                     </Switch>
                   </Web3ReactManager>
+                  <AppFooter />
                 </BodyWrapper>
               {/* </Menu> */}
               {/* <VersionBar /> */}
