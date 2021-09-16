@@ -20,6 +20,7 @@ import { Dots, Wrapper } from 'components/swap/styleds'
 import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import SettingsModal from 'components/PageHeader/SettingsModal'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 import NewButton from 'components/NewButton'
 import AppBody from '../AppBody'
 import './index.scss'
@@ -124,11 +125,16 @@ export default function Pool() {
                 </LightCard>
               )}
 
-            <NewButton>
-            <Button id="join-pool-button" as={Link} to="/add/PI" mb="16px">
-              {TranslateString(168, 'Add Liquidity')}
-            </Button>
-            </NewButton>
+            {!account ? (
+              <ConnectWalletButton width="100%" />
+              ) : (
+                <NewButton>
+                <Button id="join-pool-button" as={Link} to="/add/PI" mb="16px">
+                  {TranslateString(168, 'Add Liquidity')}
+                </Button>
+                </NewButton>
+              )
+            }
 
               {/* <div>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>

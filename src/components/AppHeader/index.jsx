@@ -43,6 +43,7 @@ function Index(props) {
   const onClick = ({ key }) => {
     if (key === "logout") {
       logout()
+      window.localStorage.removeItem('connectorId')
     }
   };
 
