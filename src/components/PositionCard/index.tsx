@@ -62,7 +62,8 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
       : [undefined, undefined]
 
   const MainWrapper = styled.div`
-    width: 720px;
+    width: 100px;
+    max-width: 720px;
     background: #FFFFFF;
     box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.19);
     border-radius: 8px;

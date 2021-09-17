@@ -7,7 +7,8 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   padding-top: calc(16px + 2rem);
   padding-bottom: 20px;
   margin-top: -2rem;
-  width: 720px;
+  width: 100%;
+  max-width: 720px;
   /* max-width: 400px; */
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
