@@ -77,7 +77,7 @@ function Index(props) {
         <>
           
           <div className="items-center hidden mt-4 sm:mt-0 sm:flex" id="header-right">
-            <WalletOption useAddress={account || undefined} />
+            <WalletOption />
             {account ? (
               <Dropdown overlay={menu} trigger={['click']} getPopupContainer={() => document.getElementById('header-right') }>
                 <Button>{subSplit(account, 6, 4)}</Button>

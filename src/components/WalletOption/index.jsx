@@ -10,6 +10,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
+import { useWeb3React } from '@web3-react/core'
 import { Dropdown, Menu, Skeleton } from 'antd'
 import CONFIG from '../../util/pool/config.json'
 import { getBalanceOf } from '../../util/pool/Balance'
@@ -36,16 +37,16 @@ const coinList = [
     }
 ]
 
-function WalletOption(props) {
-    const { useAddress } = props
+function WalletOption() {
     const [loading, setLoading] = useState(false)
     const [list, setList] = useState([])
+    const { account } = useWeb3React()
     useEffect(() => {
-        useAddress !== undefined && initialize(useAddress)
+        account && initialize(account)
         return () => {
             console.log('销毁');
         }
-    }, [])
+    }, [account])
 
     const initialize = (address) => {
         setLoading(true)
