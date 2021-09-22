@@ -59,7 +59,7 @@ export function ConfirmAddModalBottom({
       </RowBetween>
       <NewButton>
       <Button mt="20px" onClick={onAdd}>
-        {noLiquidity ? TranslateString(250, 'Create Pool & Supply') : TranslateString(252, 'Confirm Supply')}
+        {noLiquidity ? 'Create Pool & Supply' : 'Confirm Supply'}
       </Button>
       </NewButton>
     </>
