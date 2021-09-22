@@ -1,14 +1,23 @@
 # swap-interface-v1
 
 ## 安装
+克隆仓库
 ```bash
-// 克隆仓库
 git clone git@github.com:paiswap-io/swap-interface-v1.git
-// 跳转到代码目录
+```
+
+跳转到代码目录
+```bash
 cd swap-interface-v1
-// 安装依赖
+```
+
+安装依赖
+```bash
 yarn
-// 启动
+```
+
+启动
+```bash
 yarn start
 ```
 ## 项目结构和功能
