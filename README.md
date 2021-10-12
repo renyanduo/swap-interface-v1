@@ -33,7 +33,7 @@ yarn start
 - `AddLiquidity` 添加流动性
 - `RemoveLiquidity` 移除流动性
 
-## 各项配置位置
+## 各类配置
 
 ### router address
 
