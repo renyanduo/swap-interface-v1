@@ -1,6 +1,6 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@paiswap/sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@paiswaptemp/sdk'
 
-export const ROUTER_ADDRESS = '0x816C793B93292fB4Ea5ADD2DfC5615f580Defc16'
+export const ROUTER_ADDRESS = '0x64962c9FA283c6e62FEbd123a01A2578831A02aD'
 
 // a list of tokens by chain
 type ChainTokenList = {

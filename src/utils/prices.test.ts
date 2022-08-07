@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@paiswap/sdk'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@paiswaptemp/sdk'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

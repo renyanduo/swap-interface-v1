@@ -1,4 +1,4 @@
-import { Token } from '@paiswap/sdk'
+import { Token } from '@paiswaptemp/sdk'
 import { transparentize } from 'polished'
 import { Button, Text } from '@pancakeswap-libs/uikit'
 import React, { useCallback, useMemo, useState } from 'react'

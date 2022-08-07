@@ -4,7 +4,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@paiswap/sdk'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@paiswaptemp/sdk'
 import { ROUTER_ADDRESS } from '../constants'
 import { TokenAddressMap } from '../state/lists/hooks'
 
@@ -18,7 +18,7 @@ export function isAddress(value: any): string | false {
 }
 
 const BSCSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  2099156: 'piscan.',
+  8007736: 'piscan.',
   10067275: 'testnet.'
 }
 
@@ -27,14 +27,14 @@ export function getBscScanLink(chainId: ChainId, data: string, type: 'transactio
 
   switch (type) {
     case 'transaction': {
-      return `${prefix}/child_test/tx/${data}`
+      return `${prefix}/child_0/tx/${data}`
     }
     case 'token': {
-      return `${prefix}/child_test/token/${data}`
+      return `${prefix}/child_0/token/${data}`
     }
     case 'address':
     default: {
-      return `${prefix}/child_test/address/${data}`
+      return `${prefix}/child_0/address/${data}`
     }
   }
 }

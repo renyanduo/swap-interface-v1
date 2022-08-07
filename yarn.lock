@@ -3287,10 +3287,24 @@
     mkdirp "^1.0.4"
     rimraf "^2.7.1"
 
-"@paiswap/sdk@1.0.2", "@paiswap/sdk@^1.0.1":
+"@paiswap/sdk@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@paiswap/sdk/-/sdk-1.0.2.tgz#34a0db593be234164804efda221df35ffa9289c7"
   integrity sha512-RTmm0os2Oa/2iuYvoxrjOvZnc8wsDc6Jm6kjdqPJUQbau7rlB+Bjhx6cFdEJpyMXAvmrmQThqHAYotlKq2SI/g==
+  dependencies:
+    "@paiswap/sdk" "^1.0.1"
+    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
+"@paiswaptemp/sdk@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@paiswaptemp/sdk/-/sdk-1.0.2.tgz#92e86f455b86258be378fb20a1899e72615c2b76"
+  integrity sha512-zP3n18GMuzVdlj+Go6Xy0tMfE7uukSKWSTBR33MZOm744QXdVOHuSmY0ZUysfozSi8H0nqQU6RNftDN8idbzfQ==
   dependencies:
     "@paiswap/sdk" "^1.0.1"
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"

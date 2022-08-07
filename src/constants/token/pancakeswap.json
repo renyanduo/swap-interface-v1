@@ -13,10 +13,10 @@
     {
       "name": "PNFT Token",
       "symbol": "PNFT",
-      "address": "0xD046766524c66B0b2a53B2A0c92b18B9593C7951",
-      "chainId": 10067275,
+      "address": "0x10401b9A7E93E10aC92E7bB55Ae87433B9E01e08",
+      "chainId": 8007736,
       "decimals": 18,
-      "logoURI": "https://exchange.pancakeswap.finance/images/coins/0xe02df9e3e622debdd69fb838bb799e3f168902c5.png"
+      "logoURI": "https://ipfs.io/ipfs/Qmbk5oRJXvC51Yxy9A26S3YvNkn7xgFdzWpF7gzs4H6mhU"
     }
   ]
 }
