@@ -1,9 +1,9 @@
-import { ChainId } from '@paiswap/sdk'
+import { ChainId } from '@paiswaptest/sdk'
 import MULTICALL_ABI from './abi.json'
 
 const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {
-  [ChainId.MAINNET_CHILD_0]: '0x1Ee38d535d541c55C9dae27B12edf090C608E6Fb', // TODO
-  [ChainId.TESTNET_CHILD_0]: '0x83e404923c11b51c1cd1154f76ef9fe51dc69d0c'
+  [ChainId.MAINNET_CHILD_0]: '0x1B274D556C0c2A4C9B234435c547B67daE88f409', // TODO
+  [ChainId.TESTNET_CHILD_0]: '0xbc2cDA5D9aa17DC73b2EFB4E13448aC2E23f9005'
 }
 
 export { MULTICALL_ABI, MULTICALL_NETWORKS }

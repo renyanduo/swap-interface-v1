@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@paiswap/sdk'
+import { Token, TokenAmount } from '@paiswaptest/sdk'
 import { useMemo } from 'react'
 import { useAllTokenBalances } from '../../state/wallet/hooks'
 

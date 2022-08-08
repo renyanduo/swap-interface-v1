@@ -13,10 +13,43 @@
     {
       "name": "PNFT Token",
       "symbol": "PNFT",
-      "address": "0xD046766524c66B0b2a53B2A0c92b18B9593C7951",
+      "address": "0x6a2e954633B53b7b75eD10b35EaB10ec31cEb76C",
       "chainId": 10067275,
       "decimals": 18,
-      "logoURI": "https://exchange.pancakeswap.finance/images/coins/0xe02df9e3e622debdd69fb838bb799e3f168902c5.png"
+      "logoURI": "https://ipfs.io/ipfs/Qmbk5oRJXvC51Yxy9A26S3YvNkn7xgFdzWpF7gzs4H6mhU"
+    },
+    {
+      "name": "MAPI Token",
+      "symbol": "MAPI",
+      "address": "0xfeF733d1b4AeDf93A8AB195F4E20F9Da97dfd4Eb",
+      "chainId": 10067275,
+      "decimals": 18,
+      "logoURI": "https://pizzap.io/static/media/logo_pink.9e3cd213.svg"
+    },
+    {
+      "name": "USDT Token",
+      "symbol": "USDT",
+      "address": "0x5B3Cb2Cdd18D5622987193cabbCf4526a56370fC",
+      "chainId": 10067275,
+      "decimals": 18,
+      "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
+    },
+    {
+      "name": "BTC Token",
+      "symbol": "BTC",
+      "address": "0xD5e1f075019c3D37718FCe56C3AC174Ea5745Be8",
+      "chainId": 10067275,
+      "decimals": 18,
+      "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+    },
+    {
+      "name": "ETH Token",
+      "symbol": "ETH",
+      "address": "0x02b119457f81BdBE058594Ca1635e3E0248e39dc",
+      "chainId": 10067275,
+      "decimals": 18,
+      "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png"
     }
+
   ]
 }

@@ -1,4 +1,4 @@
-import { Token } from '@paiswap/sdk'
+import { Token } from '@paiswaptest/sdk'
 import { isAddress } from '../../utils'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {

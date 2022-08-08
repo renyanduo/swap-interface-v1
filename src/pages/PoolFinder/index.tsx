@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@paiswap/sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@paiswaptest/sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@pancakeswap-libs/uikit'
 import CardNav from 'components/CardNav'
