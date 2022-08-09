@@ -33,9 +33,9 @@ function Index(props) {
     })
 
   const nameList = {
-    '/': 'HOME',
-    '/l2wallet': 'L2 WALLET',
-    '/pool': 'POOL',
+    // '/': 'HOME',
+    // '/l2wallet': 'L2 WALLET',
+    // '/pool': 'POOL',
     '/swap': 'SWAP'
   }
 
@@ -58,6 +58,9 @@ function Index(props) {
         <img src={logo} alt="piswap" className="logo" />
         <>
           <div className="hidden header-title sm:block">
+            <span>
+              <a href="http://test.paiswap.io/">Home</a>
+            </span>
             {
               Object.keys(nameList).map(name => {
                 return (
@@ -109,13 +112,12 @@ function Index(props) {
                   <li
                     className={name === '/swap' ? 'active' : ''}
                     key={name}>
-                    <a href={name === '/l2wallet' ? '/l2wallet?withdraw' : name}>
                       {nameList[name]}
-                    </a>
                   </li>
                 )
               })
             }
+
           </ul>
         </div>
       )}
