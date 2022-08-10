@@ -59,7 +59,7 @@ function Index(props) {
         <>
           <div className="hidden header-title sm:block">
             <span>
-              <a href="http://test.paiswap.io/">Home</a>
+              <a href="https://test.paiswap.io/">Home</a>
             </span>
             {
               Object.keys(nameList).map(name => {
