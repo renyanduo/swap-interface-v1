@@ -1,6 +1,6 @@
 {
-  "network": "https://1.mainnet.plian.io/child_0",
-  "testNetWork": "https://1.mainnet.plian.io/child_0",
+  "network": "https://mainnet.plian.io/child_0",
+  "testNetWork": "https://mainnet.plian.io/child_0",
   "piContractAddress": "0x36555Fad9DFaE20834cD961edaA29f4c8b391887",
   "lpContractAddress": "0x75b69C47279F7eB9801c86A582aE9968232CD317",
   "uniswapContractAddress": "0x3801AD515D678a1ae7c3EA1E6D8B8AE59dA72ea1",
