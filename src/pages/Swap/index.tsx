@@ -405,9 +405,9 @@ const Swap = () => {
               <Link to="/swap" className="tab-item active">
                 Swap
               </Link>
-              <Link to="/pool" className="tab-item">
+              {/* <Link to="/pool" className="tab-item">
                 Liquidity
-              </Link>
+              </Link> */}
               <div className="settings" onClick={onPresentSettings} aria-hidden="true">
                 <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf04ec6ad4674a213f4e083ab0501e6bb274beaf7a8c19ecd7edf06b874e05a1a" referrerPolicy="no-referrer" alt="" />
               </div>

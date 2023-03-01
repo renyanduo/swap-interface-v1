@@ -11,12 +11,12 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
-      "name": "PNFT Token",
-      "symbol": "PNFT",
-      "address": "0x10401b9A7E93E10aC92E7bB55Ae87433B9E01e08",
       "chainId": 8007736,
+      "address": "0xFcb06A1a2E8834Fe9E0b49F533E14AB6384f74AC",
+      "name": "MAPITest",
+      "symbol": "MAPITest",
       "decimals": 18,
-      "logoURI": "https://ipfs.io/ipfs/Qmbk5oRJXvC51Yxy9A26S3YvNkn7xgFdzWpF7gzs4H6mhU"
+      "logoURI":"https://ipfs.io/ipfs/Qmf6KtNFrJokpXXVdpFuTw65mSuTb8iLFub75YJKA8fvh8"
     }
   ]
 }

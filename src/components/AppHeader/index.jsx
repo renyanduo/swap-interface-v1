@@ -33,10 +33,10 @@ function Index(props) {
     })
 
   const nameList = {
-    '/': 'HOME',
-    '/l2wallet': 'L2 WALLET',
-    '/pool': 'POOL',
-    '/swap': 'SWAP'
+    // '/': 'HOME',
+    // '/l2wallet': 'L2 WALLET',
+    // '/pool': 'POOL',
+    // '/swap': 'SWAP'
   }
 
 
